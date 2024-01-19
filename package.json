@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Namasate React Course",
   "scripts": {
+    "start": "parcel ./Public/index.html --port 3000",
+    "build": "parcel build ./Public/index.html --port 3000",
     "test": "jest"
   },
   "repository": {
