@@ -19,3 +19,27 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+
+
+# Food Ordering App
+
+My food app structure will look like this,
+    
+    1) Header
+        - Logo
+        - Nav Items(right side)
+        - Cart
+
+    2) Body
+        - Search Bar
+        - Resturant List
+            - Resturant Card
+                - Image
+                - Name
+                - Rating
+                - Cuision
+
+    3) Footer
+        - Links
+        - Copyright
