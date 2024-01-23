@@ -43,3 +43,17 @@ My food app structure will look like this,
     3) Footer
         - Links
         - Copyright
+
+
+# Two types of Export/Import
+
+- Default Export/Import
+
+    export default Component
+    import Component from "path"
+
+
+- Named Export/Import
+
+    export const Component
+    import {Component} from "path"
