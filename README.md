@@ -47,13 +47,21 @@ My food app structure will look like this,
 
 # Two types of Export/Import
 
-- Default Export/Import
+- 1) Default Export/Import
 
     export default Component
     import Component from "path"
 
 
-- Named Export/Import
+- 2) Named Export/Import
 
     export const Component
     import {Component} from "path"
+
+
+
+# React Hooks
+ (Normal JS utility functions)
+
+- 1) useState()  - Superpowerful state variables in react
+- 2) useEffect()
