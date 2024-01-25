@@ -65,3 +65,19 @@ My food app structure will look like this,
 
 - 1) useState()  - Superpowerful state variables in react
 - 2) useEffect()
+
+
+# 2 types Routing in web apps
+
+- Cilent Side Routing
+- Server Side Routing
+
+# Redux Toolkit
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our dtore to our app
+- Slice (cartSlice)
+- dispatch (action)
+- Selector
+
