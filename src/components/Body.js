@@ -1,8 +1,9 @@
-import ResturantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import ResturantCard, { withPromotedLabel } from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   // Local State Variable - Super powerful variable
@@ -11,9 +12,9 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
-  // Whenever state variables update, react triggers a reconciliation cycle (re-renders the component)
-  console.log("Body Rendered");
+  const RestaurantCardPromoted = withPromotedLabel(ResturantCard);
 
+  // Whenever state variables update, react triggers a reconciliation cycle (re-renders the component)
   useEffect(() => {
     fetchData();
   }, []);
@@ -25,7 +26,7 @@ const Body = () => {
 
     const json = await data.json();
 
-    console.log(json);
+    // console.log(json);
 
     // Optional Chaining
     setListOfResturant(
@@ -42,6 +43,8 @@ const Body = () => {
     return (
       <h1>Looks like you're offline!! Please check your internet connection</h1>
     );
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   // Condtional Rendering
   return listOfResturant.length === 0 ? (
@@ -88,15 +91,29 @@ const Body = () => {
             Top Rated Restaurant
           </button>
         </div>
+        <div className="search m-4 p-4 flex items-center">
+          <label>UserName: </label>
+          <input
+            className="border border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
 
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center items-center">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <ResturantCard resData={restaurant} />
+            {/* if the restaurant is promoted then add a promoted label to it */}
+
+            {restaurant.info.aggregatedDiscountInfoV3 ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <ResturantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
