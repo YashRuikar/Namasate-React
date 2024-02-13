@@ -76,7 +76,7 @@ My food app structure will look like this,
 
 - Install @reduxjs/toolkit and react-redux
 - Build our store
-- Connect our dtore to our app
+- Connect our store to our app
 - Slice (cartSlice)
 - dispatch (action)
 - Selector
