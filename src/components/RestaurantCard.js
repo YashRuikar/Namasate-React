@@ -4,7 +4,7 @@ import UserContext from "../utils/UserContext";
 
 const ResturantCard = (props) => {
   const { resData } = props;
-  const {loggedInUser} = useContext(UserContext)
+  const { loggedInUser } = useContext(UserContext);
 
   const {
     cloudinaryImageId,
@@ -17,7 +17,10 @@ const ResturantCard = (props) => {
   } = resData?.info;
 
   return (
-    <div className="m-6 p-4 w-[250px] min-h-[500px] rounded-lg bg-gray-100 hover:bg-gray-200">
+    <div
+      data-testid="resCard"
+      className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200"
+    >
       <img
         className="rounded-lg"
         alt="res-logo"
@@ -53,8 +56,12 @@ export const withPromotedLabel = (RestaurantCard) => {
         <div className="bg-black text-white m-2 p-2 rounded-lg mt-14 ">
           <label>Promoted</label>
         </div>
-        <div className="bg-black text-white m-2 p-2 rounded-lg inline-block">{aggregatedDiscountInfoV3?.header}</div>
-        <div className="bg-black text-white m-2 p-2 rounded-lg inline-block">{aggregatedDiscountInfoV3?.subHeader}</div>
+        <div className="bg-black text-white m-2 p-2 rounded-lg inline-block">
+          {aggregatedDiscountInfoV3?.header}
+        </div>
+        <div className="bg-black text-white m-2 p-2 rounded-lg inline-block">
+          {aggregatedDiscountInfoV3?.subHeader}
+        </div>
         <RestaurantCard {...props} />
       </div>
     );
