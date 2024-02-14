@@ -10,3 +10,5 @@
 
 # parcel files
 .parcel-cache
+
+/coverage
